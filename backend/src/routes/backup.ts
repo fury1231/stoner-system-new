@@ -682,8 +682,8 @@ async function importRowToPostgreSQLWithClient(client: PoolClient, tableName: st
       await client.query(
         `INSERT INTO users (id, username, password_hash, role, permissions, store_id, accessible_stores, is_active, created_at)
          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-         ON CONFLICT (id) DO UPDATE SET
-           username = EXCLUDED.username, password_hash = EXCLUDED.password_hash, role = EXCLUDED.role,
+         ON CONFLICT (username) DO UPDATE SET
+           password_hash = EXCLUDED.password_hash, role = EXCLUDED.role,
            permissions = EXCLUDED.permissions, store_id = EXCLUDED.store_id, accessible_stores = EXCLUDED.accessible_stores,
            is_active = EXCLUDED.is_active`,
         [id, username, password_hash, role, permissions, store_id, accessible_stores, Boolean(is_active), created_at]

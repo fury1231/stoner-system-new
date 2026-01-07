@@ -285,14 +285,14 @@ router.get('/', authenticate, requirePermission('view_payments'), async (req: Au
       // 管理員可以訪問所有分店，但需要處理前端的分店篩選
       if (requestedStoreIds.length > 0) {
         // 前端指定了分店篩選，直接應用
-        filters.store_ids = requestedStoreIds
+        filters.accessible_stores = requestedStoreIds
       }
       // 如果沒有指定分店篩選，顯示所有分店的記錄（不設置篩選條件）
     } else {
       // 非管理員的權限檢查 - 明確定義優先級
       // 優先級：1. accessible_stores（可訪問多個分店）2. store_id（僅限單一分店）
       let userAccessibleStores: number[] = []
-      
+
       if (user.accessible_stores && user.accessible_stores.length > 0) {
         // 優先使用 accessible_stores（支援多分店訪問）
         userAccessibleStores = user.accessible_stores
@@ -312,7 +312,7 @@ router.get('/', authenticate, requirePermission('view_payments'), async (req: Au
         })
         return
       }
-      
+
       // 處理前端的分店篩選請求
       if (filters.store_id) {
         // 如果指定了單個分店ID，檢查是否有權限
@@ -328,10 +328,10 @@ router.get('/', authenticate, requirePermission('view_payments'), async (req: Au
           res.status(403).json({ message: '權限不足：沒有可訪問的分店' })
           return
         }
-        filters.store_ids = allowedStoreIds
+        filters.accessible_stores = allowedStoreIds
       } else {
         // 沒有指定分店ID，顯示所有有權限的分店記錄
-        filters.store_ids = userAccessibleStores
+        filters.accessible_stores = userAccessibleStores
       }
     }
 
