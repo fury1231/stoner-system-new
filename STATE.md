@@ -1,12 +1,23 @@
 # System State
 
-**Version**: v3.66
+**Version**: v3.67
 **Last Update**: 2026-01-07
 **Status**: Production Ready
 
 ---
 
-## Latest Changes (v3.66)
+## Latest Changes (v3.67)
+
+- **新增 SQLite 匯入腳本**:
+  - 新增 `backend/src/scripts/import-sqlite.ts` 用於從舊系統匯入資料
+  - 支援批次處理、交易保護
+
+- **依賴更新**:
+  - `better-sqlite3` 升級至 v11.10.0
+
+---
+
+## Previous Changes (v3.66)
 
 - **🔒 分店權限過濾漏洞修復**:
   - **問題**: `payments.ts` 使用 `filters.store_ids`，但 `db.ts` 檢查 `filters.accessible_stores`

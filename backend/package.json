@@ -16,6 +16,7 @@
     "@types/node-cache": "^4.2.5",
     "axios": "^1.5.0",
     "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.10.0",
     "compression": "^1.8.1",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
@@ -28,13 +29,12 @@
     "jsonwebtoken": "^9.0.2",
     "multer": "^2.0.2",
     "node-cache": "^5.1.2",
-    "better-sqlite3": "^11.7.0",
     "pg": "^8.11.3",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@types/better-sqlite3": "^7.6.13",
     "@types/bcryptjs": "^2.4.3",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/compression": "^1.8.1",
     "@types/cookie-parser": "^1.4.10",
     "@types/cors": "^2.8.14",
