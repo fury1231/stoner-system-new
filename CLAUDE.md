@@ -1,6 +1,6 @@
 # AI Project Guide
 
-**Ver**: v3.57 | **Path**: `/home/deploy/stoner-system` | **Status**: Prod Ready | **DB**: PostgreSQL 16
+**Ver**: v3.66 | **Path**: `/home/deploy/stoner-system` | **Status**: Prod Ready | **DB**: PostgreSQL 16
 
 ---
 
@@ -129,7 +129,7 @@ Admin = all permissions | User = selective
 ### ⚠️ Update Version (REQUIRED for ANY change)
 **Location**: `frontend/src/pages/AdminDashboard.vue` Line 9
 
-**Current**: `<span>v3.57</span>`
+**Current**: `<span>v3.66</span>`
 
 **When to increment**:
 - ✅ Backend code changes (API, DB, middleware, routes)
@@ -171,6 +171,8 @@ Admin = all permissions | User = selective
 - v3.50: Security hardening round 3 - pg_dump parameter validation, batch delete TOCTOU fix (atomic operation), password reset rate limiting, remove debug console.log, fix open redirect vulnerability
 - v3.51-v3.56: Repository pattern migration, TypeScript fixes, AdminDashboard component refactoring (AuditTab, StoresTab, UsersTab)
 - v3.57: Complete PostgreSQL migration - removed all SQLite dependencies (better-sqlite3), backup/restore now uses pg_dump/psql only
+- v3.65: Backup import fix - users table ON CONFLICT changed from id to username
+- v3.66: 🔒 Critical security fix - store permission filter bug (filters.store_ids vs filters.accessible_stores mismatch)
 
 ### Modify Validation
 1. `backend/src/middleware/validation.ts`

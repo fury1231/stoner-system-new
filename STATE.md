@@ -1,12 +1,33 @@
 # System State
 
-**Version**: v3.63
-**Last Update**: 2026-01-08
+**Version**: v3.66
+**Last Update**: 2026-01-07
 **Status**: Production Ready
 
 ---
 
-## Latest Changes (v3.63)
+## Latest Changes (v3.66)
+
+- **🔒 分店權限過濾漏洞修復**:
+  - **問題**: `payments.ts` 使用 `filters.store_ids`，但 `db.ts` 檢查 `filters.accessible_stores`
+  - **影響**: 變數名稱不一致導致分店過濾完全失效，非管理員用戶可看到所有分店數據
+  - **修復**: 將 `payments.ts` 中的 `store_ids` 改為 `accessible_stores`
+  - **檔案**: `backend/src/routes/payments.ts`
+
+- **備份匯入修復**:
+  - 修復 `backup.ts` 匯入時 users 表的 `ON CONFLICT` 條件（從 `id` 改為 `username`）
+  - **檔案**: `backend/src/routes/backup.ts`
+
+---
+
+## Previous Changes (v3.64-v3.65)
+
+- **v3.65**: 備份匯入 users 表 ON CONFLICT 修復
+- **v3.64**: 內部版本
+
+---
+
+## Previous Changes (v3.63)
 
 - **CI/CD Pipeline**: GitHub Actions + Docker 容器化
   - `.github/workflows/ci.yml` - CI 流程（Lint、TypeCheck、Test、Build）
@@ -15,19 +36,6 @@
   - `frontend/Dockerfile` - 前端多階段建置
   - `frontend/nginx.conf` - 容器 Nginx 配置
   - `docker-compose.yml` - 容器編排
-  - `.dockerignore` 檔案 - Docker 建置忽略
-  - `.env.docker` - Docker 環境變數範本
-
-**Created**:
-- `.github/workflows/ci.yml`
-- `.github/workflows/deploy.yml`
-- `backend/Dockerfile`
-- `frontend/Dockerfile`
-- `frontend/nginx.conf`
-- `docker-compose.yml`
-- `backend/.dockerignore`
-- `frontend/.dockerignore`
-- `.env.docker`
 
 ---
 
@@ -76,6 +84,8 @@
 
 ## Recent Version History
 
+- **v3.66**: 🔒 分店權限過濾漏洞修復（重大安全修復）
+- **v3.65**: 備份匯入 users 表 ON CONFLICT 修復
 - **v3.63**: CI/CD Pipeline（GitHub Actions + Docker）
 - **v3.58-v3.62**: SQLite 匯入功能恢復與安全修復
 - **v3.57**: PostgreSQL 完整遷移
