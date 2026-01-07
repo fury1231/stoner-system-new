@@ -1,0 +1,18 @@
+{
+  "name": "stoner-system",
+  "version": "1.0.0",
+  "description": "多分店匯款管理系統 - Vue 3 前端與 Node.js 後端",
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter stoner-system-frontend dev\" \"pnpm --filter stoner-system-backend dev\"",
+    "dev:alt": "concurrently \"cd frontend && npm run dev\" \"cd backend && npm run dev\"",
+    "build": "pnpm --filter stoner-system-frontend build && pnpm --filter stoner-system-backend build",
+    "test": "pnpm --filter stoner-system-frontend test && pnpm --filter stoner-system-backend test",
+    "lint": "pnpm --filter stoner-system-frontend lint && pnpm --filter stoner-system-backend lint"
+  },
+  "keywords": ["discord", "payment", "notifier", "vue", "express"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

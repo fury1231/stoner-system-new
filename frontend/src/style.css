@@ -1,0 +1,61 @@
+/* ERP 風格的 CSS 樣式 */
+
+/* 網格背景 */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* 掃描線動畫 */
+@keyframes scan-line {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+.animate-scan-line {
+  animation: scan-line 8s infinite linear;
+}
+
+/* ERP 輸入框聚焦效果 */
+.focus\:ring-cyan-500:focus {
+  --tw-ring-color: rgb(6 182 212 / 0.5);
+  box-shadow: 0 0 0 2px var(--tw-ring-color), 0 0 20px rgba(6, 182, 212, 0.2);
+}
+
+.focus\:ring-emerald-500:focus {
+  --tw-ring-color: rgb(16 185 129 / 0.5);
+  box-shadow: 0 0 0 2px var(--tw-ring-color), 0 0 20px rgba(16, 185, 129, 0.2);
+}
+
+/* 按鈕懸停發光效果 */
+.hover\:shadow-cyan-500\/20:hover {
+  box-shadow: 0 10px 25px -3px rgba(6, 182, 212, 0.2), 0 4px 6px -2px rgba(6, 182, 212, 0.1);
+}
+
+.hover\:shadow-cyan-500\/30:hover {
+  box-shadow: 0 20px 25px -5px rgba(6, 182, 212, 0.3), 0 10px 10px -5px rgba(6, 182, 212, 0.2);
+}
+
+/* 自定義滾動條 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.7);
+}

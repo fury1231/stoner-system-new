@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: stoner-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${PG_USERNAME:-stoner}
+      POSTGRES_PASSWORD: ${PG_PASSWORD:?PG_PASSWORD is required}
+      POSTGRES_DB: ${PG_DATABASE:-stoner_system}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PG_USERNAME:-stoner} -d ${PG_DATABASE:-stoner_system}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - stoner-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: ${DOCKER_USERNAME:-local}/stoner-backend:${IMAGE_TAG:-latest}
+    container_name: stoner-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      PORT: 3001
+      PG_HOST: postgres
+      PG_PORT: 5432
+      PG_DATABASE: ${PG_DATABASE:-stoner_system}
+      PG_USERNAME: ${PG_USERNAME:-stoner}
+      PG_PASSWORD: ${PG_PASSWORD:?PG_PASSWORD is required}
+      JWT_SECRET: ${JWT_SECRET:?JWT_SECRET is required}
+      CSRF_SECRET: ${CSRF_SECRET:-}
+      CORS_ORIGIN: ${CORS_ORIGIN:-http://localhost}
+    ports:
+      - "3001:3001"
+    volumes:
+      - backend_backups:/app/backups
+    networks:
+      - stoner-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: ${DOCKER_USERNAME:-local}/stoner-frontend:${IMAGE_TAG:-latest}
+    container_name: stoner-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    networks:
+      - stoner-network
+
+volumes:
+  postgres_data:
+    name: stoner-postgres-data
+  backend_backups:
+    name: stoner-backend-backups
+
+networks:
+  stoner-network:
+    name: stoner-network
+    driver: bridge
