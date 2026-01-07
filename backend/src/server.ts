@@ -205,9 +205,10 @@ async function startServer() {
   try {
     await initializeServices()
 
-    // 只監聽 localhost，通過 Nginx 反向代理對外提供服務（安全性提升）
-    app.listen(PORT, '127.0.0.1', () => {
-      console.log(`Server running on port ${PORT} (localhost only)`)
+    // Docker 環境監聽 0.0.0.0，其他環境監聽 localhost
+    const HOST = process.env.NODE_ENV === 'production' ? '0.0.0.0' : '127.0.0.1'
+    app.listen(PORT, HOST, () => {
+      console.log(`Server running on port ${PORT} (${HOST})`)
     })
   } catch (error) {
     console.error('\n🚨 FATAL: Failed to initialize services:')
