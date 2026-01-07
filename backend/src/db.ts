@@ -652,8 +652,8 @@ class DatabaseManager {
       accessible_stores?: number[]
     }
   ): Promise<{ payments: PaymentRecord[]; total: number }> {
-    let whereConditions: string[] = []
-    let params: any[] = []
+    const whereConditions: string[] = []
+    const params: any[] = []
     let paramCount = 1
 
     if (filters?.store_id) {
@@ -945,8 +945,8 @@ class DatabaseManager {
   }
 
   async getAllAuditLogs(limit: number = 100, offset: number = 0, action?: string, resourceType?: string): Promise<AuditLogRecord[]> {
-    let whereConditions: string[] = []
-    let params: any[] = []
+    const whereConditions: string[] = []
+    const params: any[] = []
     let paramCount = 1
 
     if (action) {

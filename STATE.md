@@ -1,12 +1,22 @@
 # System State
 
-**Version**: v3.67
+**Version**: v3.68
 **Last Update**: 2026-01-07
 **Status**: Production Ready
 
 ---
 
-## Latest Changes (v3.67)
+## Latest Changes (v3.68)
+
+- **CI/CD 修復**:
+  - 測試框架從 Jest 遷移至 Vitest
+  - 移除過時的測試文件 (payments.test.ts, admin.test.ts)
+  - 修復 ESLint 配置 (移除未安裝的 prettier 擴展)
+  - 更新 package.json 測試腳本
+
+---
+
+## Previous Changes (v3.67)
 
 - **新增 SQLite 匯入腳本**:
   - 新增 `backend/src/scripts/import-sqlite.ts` 用於從舊系統匯入資料

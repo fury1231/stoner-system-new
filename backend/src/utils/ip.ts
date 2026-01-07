@@ -11,7 +11,7 @@ export function getClientIP(req: Request): string {
   const reqIP = req.ip
 
   // 處理 X-Forwarded-For 標頭（可能包含多個 IP）
-  let candidateIPs: string[] = []
+  const candidateIPs: string[] = []
 
   if (forwarded) {
     if (typeof forwarded === 'string') {
