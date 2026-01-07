@@ -39,9 +39,11 @@ RUN npm ci --omit=dev && \
 # Copy built files from builder stage
 COPY --from=builder /app/dist ./dist
 
-# Create non-root user for security
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nodejs -u 1001
+# Create directories and non-root user
+RUN mkdir -p /app/uploads /app/backups && \
+    addgroup -g 1001 -S nodejs && \
+    adduser -S nodejs -u 1001 && \
+    chown -R nodejs:nodejs /app
 
 USER nodejs
 
