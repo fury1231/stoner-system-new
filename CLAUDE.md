@@ -1,6 +1,6 @@
 # AI Project Guide
 
-**Ver**: v3.68 | **Path**: `/home/deploy/stoner-system` | **Status**: Prod Ready | **DB**: PostgreSQL 16
+**Ver**: v3.69 | **Path**: `/home/deploy/stoner-system` | **Status**: Prod Ready | **DB**: PostgreSQL 16
 
 ---
 
@@ -129,7 +129,7 @@ Admin = all permissions | User = selective
 ### ⚠️ Update Version (REQUIRED for ANY change)
 **Location**: `frontend/src/pages/AdminDashboard.vue` Line 9
 
-**Current**: `<span>v3.68</span>`
+**Current**: `<span>v3.69</span>`
 
 **When to increment**:
 - ✅ Backend code changes (API, DB, middleware, routes)
@@ -174,7 +174,8 @@ Admin = all permissions | User = selective
 - v3.65: Backup import fix - users table ON CONFLICT changed from id to username
 - v3.66: 🔒 Critical security fix - store permission filter bug (filters.store_ids vs filters.accessible_stores mismatch)
 - v3.67: Add SQLite to PostgreSQL import script, update better-sqlite3 to v11.10.0
-- v3.68: Fix CI/CD - migrate tests from Jest to Vitest, remove outdated test files, fix ESLint config
+- v3.68: Fix CI/CD backend - migrate tests from Jest to Vitest, remove outdated test files, fix ESLint config
+- v3.69: Fix CI/CD frontend - remove outdated PaymentForm test, add placeholder test
 
 ### Modify Validation
 1. `backend/src/middleware/validation.ts`
