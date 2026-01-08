@@ -24,11 +24,11 @@
           <!-- 狀態 -->
           <select
             v-model="filters.status"
-            @change="onStatusFilterChange"
             :class="[
               'px-3 py-2 text-sm rounded-full border-0 focus:ring-2 focus:ring-indigo-500 transition-all cursor-pointer',
               filters.status ? 'bg-indigo-100 text-indigo-700 font-medium' : 'bg-slate-100 text-slate-600'
             ]"
+            @change="onStatusFilterChange"
           >
             <option value="">全部狀態</option>
             <option value="未確認">未確認</option>
@@ -39,11 +39,11 @@
           <!-- 付款方式 -->
           <select
             v-model="filters.payment_method"
-            @change="onFilterChange"
             :class="[
               'px-3 py-2 text-sm rounded-full border-0 focus:ring-2 focus:ring-indigo-500 transition-all cursor-pointer',
               filters.payment_method ? 'bg-indigo-100 text-indigo-700 font-medium' : 'bg-slate-100 text-slate-600'
             ]"
+            @change="onFilterChange"
           >
             <option value="">全部方式</option>
             <optgroup label="一般">
@@ -71,11 +71,11 @@
           <!-- 分店 -->
           <select
             v-model="filters.store_id"
-            @change="onFilterChange"
             :class="[
               'px-3 py-2 text-sm rounded-full border-0 focus:ring-2 focus:ring-indigo-500 transition-all cursor-pointer',
               filters.store_id ? 'bg-indigo-100 text-indigo-700 font-medium' : 'bg-slate-100 text-slate-600'
             ]"
+            @change="onFilterChange"
           >
             <option :value="undefined">全部分店</option>
             <option v-for="store in stores" :key="store.id" :value="store.id">
@@ -85,13 +85,13 @@
 
           <!-- 日期範圍按鈕 -->
           <button
-            @click="showDateRange = !showDateRange"
             :class="[
               'px-3 py-2 text-sm rounded-full flex items-center gap-1.5 transition-all',
               (filters.start_date || filters.end_date)
                 ? 'bg-indigo-100 text-indigo-700 font-medium'
                 : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
             ]"
+            @click="showDateRange = !showDateRange"
           >
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
@@ -103,8 +103,8 @@
           <!-- 清除篩選 -->
           <button
             v-if="hasActiveFilters"
-            @click="clearFilters"
             class="px-3 py-2 text-sm text-rose-600 bg-rose-50 hover:bg-rose-100 rounded-full transition-all font-medium"
+            @click="clearFilters"
           >
             清除篩選
           </button>
@@ -115,9 +115,9 @@
           <div class="flex items-center justify-center gap-2">
             <!-- 前一天 -->
             <button
-              @click="changeDate(-1)"
               class="p-2 text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all"
               title="前一天"
+              @click="changeDate(-1)"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
@@ -143,9 +143,9 @@
 
             <!-- 後一天 -->
             <button
-              @click="changeDate(1)"
               class="p-2 text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all"
               title="後一天"
+              @click="changeDate(1)"
             >
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -154,8 +154,8 @@
 
             <!-- 今天按鈕 -->
             <button
-              @click="goToToday"
               class="px-3 py-2 text-xs bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition-all font-medium"
+              @click="goToToday"
             >
               今天
             </button>
@@ -174,24 +174,24 @@
             </div>
             <span class="text-sm text-indigo-700 font-medium">筆已選取</span>
           </div>
-          <button @click="clearSelection" class="text-xs text-indigo-500 hover:text-indigo-700 underline">取消選取</button>
+          <button class="text-xs text-indigo-500 hover:text-indigo-700 underline" @click="clearSelection">取消選取</button>
         </div>
         <div class="flex items-center gap-2">
           <button
-            @click="emit('batchStatusUpdate')"
             class="flex-1 sm:flex-none px-3 py-2 text-xs bg-amber-500 hover:bg-amber-600 text-white rounded-lg font-medium transition-all shadow-sm"
+            @click="emit('batchStatusUpdate')"
           >
             更新狀態
           </button>
           <button
-            @click="emit('exportSelected')"
             class="flex-1 sm:flex-none px-3 py-2 text-xs bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg font-medium transition-all shadow-sm"
+            @click="emit('exportSelected')"
           >
             匯出
           </button>
           <button
-            @click="emit('batchDelete', Array.from(selectedItems))"
             class="px-3 py-2 text-xs bg-rose-500 hover:bg-rose-600 text-white rounded-lg font-medium transition-all shadow-sm"
+            @click="emit('batchDelete', Array.from(selectedItems))"
           >
             刪除
           </button>
@@ -208,8 +208,8 @@
             type="checkbox"
             :checked="isAllSelected"
             :indeterminate="isPartiallySelected"
-            @change="toggleSelectAll"
             class="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+            @change="toggleSelectAll"
           />
           <span class="text-sm text-slate-600">全選</span>
         </label>
@@ -219,14 +219,14 @@
       </div>
       <div class="flex items-center gap-2">
         <button
-          @click="emit('importExcel')"
           class="px-3 py-1.5 text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg font-medium transition-all"
+          @click="emit('importExcel')"
         >
           匯入
         </button>
         <button
-          @click="emit('exportFiltered')"
           class="px-3 py-1.5 text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-lg font-medium transition-all"
+          @click="emit('exportFiltered')"
         >
           匯出
         </button>
@@ -285,16 +285,16 @@
                 <input
                   type="datetime-local"
                   :value="formatDateTimeForEdit(getEditedValue(item.uuid, 'paid_at', item.paid_at))"
-                  @input="emit('updateField', item.uuid, 'paid_at', ($event.target as HTMLInputElement).value)"
                   class="w-full px-2 py-1.5 text-sm bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  @input="emit('updateField', item.uuid, 'paid_at', ($event.target as HTMLInputElement).value)"
                 />
               </div>
               <div class="col-span-2 sm:col-span-1">
                 <label class="block text-xs font-medium text-slate-600 mb-1">付款方式</label>
                 <select
                   :value="getEditedValue(item.uuid, 'payment_method', item.payment_method)"
-                  @change="emit('updateField', item.uuid, 'payment_method', ($event.target as HTMLSelectElement).value)"
                   class="w-full px-2 py-1.5 text-sm bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  @change="emit('updateField', item.uuid, 'payment_method', ($event.target as HTMLSelectElement).value)"
                 >
                   <option v-for="method in paymentMethods" :key="method" :value="method">{{ method }}</option>
                 </select>
@@ -304,16 +304,16 @@
                 <input
                   type="number"
                   :value="getEditedValue(item.uuid, 'amount', item.amount)"
-                  @input="emit('updateField', item.uuid, 'amount', parseInt(($event.target as HTMLInputElement).value) || 0)"
                   class="w-full px-2 py-1.5 text-sm bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  @input="emit('updateField', item.uuid, 'amount', parseInt(($event.target as HTMLInputElement).value) || 0)"
                 />
               </div>
               <div>
                 <label class="block text-xs font-medium text-slate-600 mb-1">狀態</label>
                 <select
                   :value="getEditedValue(item.uuid, 'status', item.status)"
-                  @change="emit('updateField', item.uuid, 'status', ($event.target as HTMLSelectElement).value)"
                   class="w-full px-2 py-1.5 text-sm bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  @change="emit('updateField', item.uuid, 'status', ($event.target as HTMLSelectElement).value)"
                 >
                   <option value="未確認">未確認</option>
                   <option value="已入帳">已入帳</option>
@@ -324,14 +324,14 @@
                 <label class="block text-xs font-medium text-slate-600 mb-1">備註</label>
                 <textarea
                   :value="getEditedValue(item.uuid, 'note', item.note)"
-                  @input="emit('updateField', item.uuid, 'note', ($event.target as HTMLTextAreaElement).value)"
                   rows="2"
                   class="w-full px-2 py-1.5 text-sm bg-white border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent resize-none"
+                  @input="emit('updateField', item.uuid, 'note', ($event.target as HTMLTextAreaElement).value)"
                 ></textarea>
               </div>
               <div class="col-span-2 md:col-span-4 flex justify-end gap-3 pt-3">
-                <button @click="emit('cancelEdit', item.uuid)" class="px-5 py-2.5 text-sm font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition-all">取消</button>
-                <button @click="emit('saveEdit', item.uuid)" class="px-5 py-2.5 text-sm font-medium bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg shadow-sm transition-all">儲存</button>
+                <button class="px-5 py-2.5 text-sm font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition-all" @click="emit('cancelEdit', item.uuid)">取消</button>
+                <button class="px-5 py-2.5 text-sm font-medium bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg shadow-sm transition-all" @click="emit('saveEdit', item.uuid)">儲存</button>
               </div>
             </div>
           </div>
@@ -348,8 +348,8 @@
                 <input
                   type="checkbox"
                   :checked="selectedItems.has(item.uuid)"
-                  @change="toggleSelectItem(item.uuid)"
                   class="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer flex-shrink-0"
+                  @change="toggleSelectItem(item.uuid)"
                 />
 
                 <!-- 金額 -->
@@ -393,9 +393,9 @@
                   <!-- 手機版快速確認按鈕（僅未確認狀態顯示） -->
                   <button
                     v-if="item.status === '未確認'"
-                    @click="emit('statusChange', item.uuid, '已入帳')"
                     class="sm:hidden p-1.5 text-emerald-500 hover:text-emerald-700 bg-emerald-50 hover:bg-emerald-100 rounded transition-all"
                     title="確認入帳"
+                    @click="emit('statusChange', item.uuid, '已入帳')"
                   >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
@@ -404,9 +404,9 @@
                   <!-- 手機版快速拒絕按鈕（僅未確認狀態顯示） -->
                   <button
                     v-if="item.status === '未確認'"
-                    @click="emit('statusChange', item.uuid, '未入帳')"
                     class="sm:hidden p-1.5 text-rose-500 hover:text-rose-700 bg-rose-50 hover:bg-rose-100 rounded transition-all"
                     title="標記未入帳"
+                    @click="emit('statusChange', item.uuid, '未入帳')"
                   >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/>
@@ -415,26 +415,26 @@
                   <!-- 桌面版狀態選擇器 -->
                   <select
                     :value="item.status"
-                    @change="emit('statusChange', item.uuid, ($event.target as HTMLSelectElement).value)"
                     class="text-xs px-1.5 py-1 rounded border-0 bg-slate-100 text-slate-600 focus:ring-2 focus:ring-indigo-500 cursor-pointer hidden sm:block"
+                    @change="emit('statusChange', item.uuid, ($event.target as HTMLSelectElement).value)"
                   >
                     <option value="未確認">未確認</option>
                     <option value="已入帳">已入帳</option>
                     <option value="未入帳">未入帳</option>
                   </select>
                   <button
-                    @click="emit('edit', item.uuid)"
                     class="p-1.5 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded transition-all"
                     title="編輯"
+                    @click="emit('edit', item.uuid)"
                   >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
                     </svg>
                   </button>
                   <button
-                    @click="emit('delete', item.uuid)"
                     class="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded transition-all"
                     title="刪除"
+                    @click="emit('delete', item.uuid)"
                   >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
@@ -453,17 +453,17 @@
       <!-- 手機版：簡化分頁 -->
       <div class="flex sm:hidden items-center justify-between">
         <button
-          @click="goToPage(pagination.page - 1)"
           :disabled="pagination.page <= 1"
           class="px-4 py-2.5 text-sm border border-gray-300 rounded-lg active:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+          @click="goToPage(pagination.page - 1)"
         >
           上一頁
         </button>
         <span class="text-sm text-gray-600">{{ pagination.page }} / {{ pagination.totalPages }}</span>
         <button
-          @click="goToPage(pagination.page + 1)"
           :disabled="pagination.page >= pagination.totalPages"
           class="px-4 py-2.5 text-sm border border-gray-300 rounded-lg active:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed"
+          @click="goToPage(pagination.page + 1)"
         >
           下一頁
         </button>
@@ -476,9 +476,9 @@
         </div>
         <div class="flex items-center gap-1">
           <button
-            @click="goToPage(pagination.page - 1)"
             :disabled="pagination.page <= 1"
             class="px-3 py-1.5 text-sm border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            @click="goToPage(pagination.page - 1)"
           >
             上一頁
           </button>
@@ -487,22 +487,22 @@
             <span v-if="page === '...'" class="px-2 text-gray-400">...</span>
             <button
               v-else
-              @click="goToPage(page as number)"
               :class="[
                 'px-3 py-1.5 text-sm rounded',
                 pagination.page === page
                   ? 'bg-blue-500 text-white'
                   : 'border border-gray-300 hover:bg-gray-50'
               ]"
+              @click="goToPage(page as number)"
             >
               {{ page }}
             </button>
           </template>
 
           <button
-            @click="goToPage(pagination.page + 1)"
             :disabled="pagination.page >= pagination.totalPages"
             class="px-3 py-1.5 text-sm border border-gray-300 rounded hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
+            @click="goToPage(pagination.page + 1)"
           >
             下一頁
           </button>

@@ -11,13 +11,13 @@
     <div class="absolute top-4 right-4 xs:top-3 xs:right-3 flex items-center space-x-2 sm:space-x-3 z-50">
       <!-- 桌面版 -->
       <div class="hidden sm:flex items-center space-x-3">
-        <button @click="goToAdmin" class="p-2 bg-slate-800/80 hover:bg-slate-700 border border-slate-600 rounded-lg text-cyan-300 transition-colors" title="管理後台">
+        <button class="p-2 bg-slate-800/80 hover:bg-slate-700 border border-slate-600 rounded-lg text-cyan-300 transition-colors" title="管理後台" @click="goToAdmin">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
           </svg>
         </button>
-        <button @click="goToOrders" class="p-2 bg-slate-800/80 hover:bg-slate-700 border border-slate-600 rounded-lg text-emerald-300 transition-colors" title="客訂單">
+        <button class="p-2 bg-slate-800/80 hover:bg-slate-700 border border-slate-600 rounded-lg text-emerald-300 transition-colors" title="客訂單" @click="goToOrders">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
           </svg>
@@ -26,7 +26,7 @@
           <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
           <span class="text-sm text-slate-300">{{ currentUser }}</span>
         </div>
-        <button @click="logout" class="p-2 bg-slate-800/80 hover:bg-red-900/50 border border-slate-600 hover:border-red-500/50 rounded-lg text-slate-400 hover:text-red-300 transition-colors" title="登出">
+        <button class="p-2 bg-slate-800/80 hover:bg-red-900/50 border border-slate-600 hover:border-red-500/50 rounded-lg text-slate-400 hover:text-red-300 transition-colors" title="登出" @click="logout">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
           </svg>
@@ -35,18 +35,18 @@
 
       <!-- 手機版 -->
       <div class="sm:hidden flex items-center space-x-1.5">
-        <button @click="goToAdmin" class="p-2.5 bg-slate-800/90 border border-cyan-500/50 rounded-lg text-cyan-200" title="管理後台">
+        <button class="p-2.5 bg-slate-800/90 border border-cyan-500/50 rounded-lg text-cyan-200" title="管理後台" @click="goToAdmin">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
           </svg>
         </button>
-        <button @click="goToOrders" class="p-2.5 bg-slate-800/90 border border-emerald-500/50 rounded-lg text-emerald-200" title="客訂單">
+        <button class="p-2.5 bg-slate-800/90 border border-emerald-500/50 rounded-lg text-emerald-200" title="客訂單" @click="goToOrders">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
           </svg>
         </button>
-        <button @click="logout" class="p-2.5 bg-slate-800/90 border border-red-500/50 rounded-lg text-red-200" title="登出">
+        <button class="p-2.5 bg-slate-800/90 border border-red-500/50 rounded-lg text-red-200" title="登出" @click="logout">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
           </svg>
@@ -126,7 +126,6 @@
             >
               <button
                 type="button"
-                @click="handlePrimaryMethodClick(method.value)"
                 :class="[
                   'w-full py-2 px-1 rounded-lg text-sm font-medium transition-all duration-200',
                   (method.value === 'electronic' ? isElectronicSelected : method.value === 'employee' ? isEmployeeSelected : form.payment_method === method.value)
@@ -135,6 +134,7 @@
                       ? 'bg-slate-700 text-white border border-cyan-500/50'
                       : 'bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-600'
                 ]"
+                @click="handlePrimaryMethodClick(method.value)"
               >
                 <div class="text-base">{{ method.icon }}</div>
                 <div class="text-[10px]">{{ method.label }}</div>
@@ -152,13 +152,13 @@
                     v-for="sub in electronicMethods"
                     :key="sub.value"
                     type="button"
-                    @click="selectPaymentMethod(sub.value)"
                     :class="[
                       'py-2 px-2 rounded-lg text-xs font-medium transition-all',
                       form.payment_method === sub.value
                         ? 'bg-cyan-500 text-white'
                         : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
                     ]"
+                    @click="selectPaymentMethod(sub.value)"
                   >
                     <span class="mr-1">{{ sub.icon }}</span>{{ sub.label }}
                   </button>
@@ -177,13 +177,13 @@
                     v-for="sub in employeeMethods"
                     :key="sub.value"
                     type="button"
-                    @click="selectPaymentMethod(sub.value)"
                     :class="[
                       'py-2 px-3 rounded-lg text-xs font-medium transition-all text-left',
                       form.payment_method === sub.value
                         ? 'bg-amber-500 text-white'
                         : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
                     ]"
+                    @click="selectPaymentMethod(sub.value)"
                   >
                     <span class="mr-1">{{ sub.icon }}</span>{{ sub.label }}
                   </button>
@@ -198,13 +198,13 @@
               v-for="method in secondaryMethods"
               :key="method.value"
               type="button"
-              @click="selectPaymentMethod(method.value)"
               :class="[
                 'py-2 px-1 rounded-lg text-sm font-medium transition-all duration-200',
                 form.payment_method === method.value
                   ? (method.value === '店內支出' || method.value === '提領' ? 'bg-rose-500 text-white shadow-lg shadow-rose-500/30' : 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/30')
                   : 'bg-slate-800/60 text-slate-400 hover:bg-slate-700 border border-slate-700'
               ]"
+              @click="selectPaymentMethod(method.value)"
             >
               <div class="text-base">{{ method.icon }}</div>
               <div class="text-[10px]">{{ method.label }}</div>
@@ -269,14 +269,14 @@
           <div class="flex items-center gap-3">
             <!-- 分店選擇 -->
             <div v-if="stores.length > 1" class="flex items-center gap-1 flex-1">
-              <button type="button" @click="prevStore" class="w-7 h-7 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center border border-slate-600">
+              <button type="button" class="w-7 h-7 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center border border-slate-600" @click="prevStore">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
               </button>
               <div class="flex-1 text-center">
                 <span class="text-[10px] text-slate-500 block">🏪</span>
                 <span class="text-sm font-medium text-white">{{ getSelectedStoreName() || '未選擇' }}</span>
               </div>
-              <button type="button" @click="nextStore" class="w-7 h-7 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center border border-slate-600">
+              <button type="button" class="w-7 h-7 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center border border-slate-600" @click="nextStore">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
               </button>
             </div>
@@ -286,14 +286,14 @@
 
             <!-- 時間選擇 -->
             <div class="flex items-center gap-1 flex-1">
-              <button type="button" @click="adjustHour(-1)" class="w-7 h-7 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center border border-slate-600">
+              <button type="button" class="w-7 h-7 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center border border-slate-600" @click="adjustHour(-1)">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
               </button>
               <div class="flex-1 text-center">
                 <span class="text-[10px] text-slate-500 block">{{ currentDateDisplay }}</span>
                 <span class="text-sm font-medium text-white">{{ currentHour }}:{{ currentMinute }}</span>
               </div>
-              <button type="button" @click="adjustHour(1)" class="w-7 h-7 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center border border-slate-600">
+              <button type="button" class="w-7 h-7 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center border border-slate-600" @click="adjustHour(1)">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
               </button>
             </div>
@@ -301,19 +301,19 @@
 
           <!-- 日期快捷按鈕 -->
           <div class="flex justify-center gap-1.5 mt-2">
-            <button type="button" @click="setDateToday" class="px-2.5 py-1 text-[10px] rounded-md transition-all" :class="isToday ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'">今天</button>
-            <button type="button" @click="setDateYesterday" class="px-2.5 py-1 text-[10px] rounded-md transition-all" :class="isYesterday ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'">昨天</button>
-            <button type="button" @click="setDateDayBefore" class="px-2.5 py-1 text-[10px] rounded-md transition-all" :class="isDayBefore ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'">前天</button>
-            <button type="button" @click="showDatePicker = !showDatePicker" class="px-2.5 py-1 text-[10px] rounded-md transition-all" :class="isOtherDate ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'">其他</button>
-            <button type="button" @click="adjustMinute(-5)" class="px-1.5 py-1 text-[10px] rounded-md bg-slate-800 text-slate-400 hover:bg-slate-700">-5</button>
-            <button type="button" @click="adjustMinute(-1)" class="px-1.5 py-1 text-[10px] rounded-md bg-slate-800 text-slate-400 hover:bg-slate-700">-1</button>
-            <button type="button" @click="adjustMinute(1)" class="px-1.5 py-1 text-[10px] rounded-md bg-slate-800 text-slate-400 hover:bg-slate-700">+1</button>
-            <button type="button" @click="adjustMinute(5)" class="px-1.5 py-1 text-[10px] rounded-md bg-slate-800 text-slate-400 hover:bg-slate-700">+5</button>
+            <button type="button" class="px-2.5 py-1 text-[10px] rounded-md transition-all" :class="isToday ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'" @click="setDateToday">今天</button>
+            <button type="button" class="px-2.5 py-1 text-[10px] rounded-md transition-all" :class="isYesterday ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'" @click="setDateYesterday">昨天</button>
+            <button type="button" class="px-2.5 py-1 text-[10px] rounded-md transition-all" :class="isDayBefore ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'" @click="setDateDayBefore">前天</button>
+            <button type="button" class="px-2.5 py-1 text-[10px] rounded-md transition-all" :class="isOtherDate ? 'bg-cyan-500 text-white' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'" @click="showDatePicker = !showDatePicker">其他</button>
+            <button type="button" class="px-1.5 py-1 text-[10px] rounded-md bg-slate-800 text-slate-400 hover:bg-slate-700" @click="adjustMinute(-5)">-5</button>
+            <button type="button" class="px-1.5 py-1 text-[10px] rounded-md bg-slate-800 text-slate-400 hover:bg-slate-700" @click="adjustMinute(-1)">-1</button>
+            <button type="button" class="px-1.5 py-1 text-[10px] rounded-md bg-slate-800 text-slate-400 hover:bg-slate-700" @click="adjustMinute(1)">+1</button>
+            <button type="button" class="px-1.5 py-1 text-[10px] rounded-md bg-slate-800 text-slate-400 hover:bg-slate-700" @click="adjustMinute(5)">+5</button>
           </div>
 
           <!-- 其他日期選擇器 -->
           <div v-if="showDatePicker" class="flex justify-center mt-2">
-            <input type="date" :value="currentDateValue" @change="updateDate($event)" class="px-2 py-1 bg-slate-800 border border-slate-600 rounded-lg text-white text-xs focus:outline-none focus:ring-2 focus:ring-cyan-500" />
+            <input type="date" :value="currentDateValue" class="px-2 py-1 bg-slate-800 border border-slate-600 rounded-lg text-white text-xs focus:outline-none focus:ring-2 focus:ring-cyan-500" @change="updateDate($event)" />
           </div>
         </div>
 
@@ -351,10 +351,10 @@
             <span class="text-amber-300 text-xs">金額為 0，記錄為贈品/公關品</span>
           </div>
           <button
-            @click="submitPayment"
             :disabled="isSubmitting || !isFormValid"
             class="w-full py-3 rounded-xl font-bold text-base transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             :class="isFormValid ? 'bg-gradient-to-r from-cyan-500 to-emerald-500 text-white shadow-lg shadow-cyan-500/30 active:scale-[0.98]' : 'bg-slate-700 text-slate-400'"
+            @click="submitPayment"
           >
             <span v-if="isSubmitting" class="flex items-center justify-center">
               <svg class="animate-spin -ml-1 mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24">
@@ -373,7 +373,7 @@
         <div class="bg-slate-900 border border-slate-700 rounded-2xl w-full max-w-md max-h-[90vh] overflow-y-auto">
           <div class="sticky top-0 bg-slate-900 border-b border-slate-700 p-4 flex items-center justify-between">
             <h3 class="font-bold text-white">📋 新增客訂單</h3>
-            <button @click="form.payment_method = ''" class="text-slate-400 hover:text-white">
+            <button class="text-slate-400 hover:text-white" @click="form.payment_method = ''">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
@@ -449,7 +449,8 @@
 
           <div class="sticky bottom-0 bg-slate-900 border-t border-slate-700 p-4 space-y-3">
             <!-- 客訂單訊息顯示 -->
-            <div v-if="message && form.payment_method === '客訂單'"
+            <div
+v-if="message && form.payment_method === '客訂單'"
               :class="[
                 'p-3 rounded-xl text-sm flex items-center space-x-2',
                 messageClass.includes('green') ? 'bg-emerald-900/30 border border-emerald-500/30 text-emerald-300' : 'bg-red-900/30 border border-red-500/30 text-red-300'
@@ -460,9 +461,9 @@
               <span>{{ message }}</span>
             </div>
             <button
-              @click="submitPayment"
               :disabled="isSubmitting || !orderForm.products || !orderForm.customerName || !orderForm.customerPhone"
               class="w-full py-3 rounded-xl font-bold bg-gradient-to-r from-cyan-500 to-emerald-500 text-white disabled:opacity-50 disabled:cursor-not-allowed"
+              @click="submitPayment"
             >
               {{ isSubmitting ? '建立中...' : '建立客訂單' }}
             </button>
@@ -481,14 +482,14 @@
         </div>
         <div class="flex gap-3">
           <button
-            @click="showZeroAmountConfirm = false"
             class="flex-1 py-3 rounded-xl font-medium bg-slate-700 text-slate-300 hover:bg-slate-600 transition-colors"
+            @click="showZeroAmountConfirm = false"
           >
             取消
           </button>
           <button
-            @click="doSubmitPayment"
             class="flex-1 py-3 rounded-xl font-bold bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30 hover:shadow-amber-500/50 transition-all"
+            @click="doSubmitPayment"
           >
             確定提交
           </button>

@@ -23,8 +23,8 @@
         </div>
         
         <button
-          @click="goBack"
           class="flex items-center space-x-2 bg-gray-800/50 hover:bg-gray-700/50 backdrop-blur-xl border border-gray-600/50 rounded-lg px-4 py-2 text-white text-sm font-medium transition-colors duration-200"
+          @click="goBack"
         >
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
@@ -98,8 +98,8 @@
           <!-- 標題與控制按鈕 -->
           <div class="flex items-center justify-between">
             <button
-              @click="isFilterExpanded = !isFilterExpanded"
               class="flex items-center space-x-2 hover:text-white transition-colors group"
+              @click="isFilterExpanded = !isFilterExpanded"
             >
               <svg class="w-4 h-4 xs:w-5 xs:h-5 text-gray-400 group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
@@ -118,8 +118,8 @@
 
             <!-- 緊湊模式切換 -->
             <button
-              @click="isCompactMode = !isCompactMode"
               class="flex items-center space-x-2 px-3 py-1.5 bg-gray-700/50 hover:bg-gray-600/50 border border-gray-600 rounded-lg text-white text-xs transition-colors duration-200"
+              @click="isCompactMode = !isCompactMode"
             >
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path v-if="isCompactMode" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -154,8 +154,8 @@
                 />
                 <button
                   v-if="filter.searchQuery"
-                  @click="filter.searchQuery = ''"
                   class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-white"
+                  @click="filter.searchQuery = ''"
                 >
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -222,9 +222,9 @@
                 </select>
 
                 <button
-                  @click="refreshData"
                   :disabled="isLoading"
                   class="px-3 xs:px-4 py-2 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed text-white text-sm font-medium rounded-lg transition-colors duration-200 flex items-center justify-center space-x-1 xs:space-x-2"
+                  @click="refreshData"
                 >
                   <svg class="w-4 h-4" :class="{ 'animate-spin': isLoading }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357 2m15.357-2H15"/>
@@ -365,8 +365,8 @@
             <div class="xs:flex xs:flex-row xs:gap-2 xs:mt-3 sm:flex-col sm:space-y-2 sm:ml-4 sm:mt-0">
               <!-- 編輯按鈕 -->
               <button
-                @click="editOrder(order)"
                 class="px-3 py-2 xs:min-h-[44px] xs:text-xs xs:flex-1 sm:text-sm sm:flex-auto bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center space-x-1 xs:space-x-0.5"
+                @click="editOrder(order)"
               >
                 <svg class="w-4 h-4 xs:w-3.5 xs:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
@@ -376,8 +376,8 @@
               
               <button
                 v-if="order.status === '進行中'"
-                @click="markAsCompleted(order)"
                 class="px-3 py-2 xs:min-h-[44px] xs:text-xs xs:flex-1 sm:text-sm sm:flex-auto bg-green-600 hover:bg-green-700 active:bg-green-800 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center space-x-1 xs:space-x-0.5"
+                @click="markAsCompleted(order)"
               >
                 <svg class="w-4 h-4 xs:w-3.5 xs:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
@@ -387,8 +387,8 @@
               
               <!-- 刪除按鈕 - 所有狀態都可刪除 -->
               <button
-                @click="deleteOrder(order)"
                 class="px-3 py-2 xs:min-h-[44px] xs:text-xs xs:flex-1 sm:text-sm sm:flex-auto bg-red-600 hover:bg-red-700 active:bg-red-800 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center space-x-1 xs:space-x-0.5"
+                @click="deleteOrder(order)"
               >
                 <svg class="w-4 h-4 xs:w-3.5 xs:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
@@ -398,8 +398,8 @@
               
               <button
                 v-if="order.status === '已完成'"
-                @click="markAsInProgress(order)"
                 class="px-3 py-2 xs:min-h-[44px] xs:text-xs xs:flex-1 sm:text-sm sm:flex-auto bg-yellow-600 hover:bg-yellow-700 active:bg-yellow-800 text-white font-medium rounded-lg transition-colors duration-200 flex items-center justify-center space-x-1 xs:space-x-0.5"
+                @click="markAsInProgress(order)"
               >
                 <svg class="w-4 h-4 xs:w-3.5 xs:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -414,9 +414,9 @@
 
     <!-- 快速新增訂單浮動按鈕 -->
     <button
-      @click="goToPaymentForm"
       class="fixed bottom-6 right-6 xs:bottom-20 xs:right-4 sm:bottom-8 sm:right-8 w-14 h-14 bg-gradient-to-r from-emerald-500 to-cyan-600 hover:from-emerald-600 hover:to-cyan-700 text-white rounded-full shadow-2xl flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 z-40 group"
       title="新增客訂單"
+      @click="goToPaymentForm"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
@@ -433,7 +433,7 @@
         
         <div class="relative transform overflow-hidden rounded-xl bg-gray-800 px-3 xs:px-4 pb-4 pt-5 text-left shadow-xl transition-all w-full max-w-xs xs:max-w-sm sm:my-8 sm:max-w-lg sm:p-6 max-h-[90vh] overflow-y-auto">
           <div class="absolute right-0 top-0 pr-4 pt-4">
-            <button @click="closeEditModal" class="rounded-md bg-gray-800 text-gray-400 hover:text-gray-200">
+            <button class="rounded-md bg-gray-800 text-gray-400 hover:text-gray-200" @click="closeEditModal">
               <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
               </svg>
@@ -444,13 +444,13 @@
             <div class="mt-3 text-center sm:ml-0 sm:mt-0 sm:text-left w-full">
               <h3 class="text-lg xs:text-base sm:text-lg font-medium leading-6 text-white mb-3 xs:mb-4">編輯客訂單</h3>
               
-              <form @submit.prevent="updateOrder" class="space-y-3 xs:space-y-4">
+              <form class="space-y-3 xs:space-y-4" @submit.prevent="updateOrder">
                 <!-- 訂單日期 -->
                 <div>
                   <label class="block text-sm font-medium text-gray-300 mb-1">訂單日期</label>
                   <input
-                    type="date"
                     v-model="editForm.order_date"
+                    type="date"
                     class="w-full px-2 xs:px-3 py-2 text-sm xs:text-base bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
@@ -472,8 +472,8 @@
                 <div>
                   <label class="block text-sm font-medium text-gray-300 mb-1">取件名稱</label>
                   <input
-                    type="text"
                     v-model="editForm.customer_name"
+                    type="text"
                     class="w-full px-2 xs:px-3 py-2 text-sm xs:text-base bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="請輸入取件人姓名"
                     required
@@ -484,8 +484,8 @@
                 <div>
                   <label class="block text-sm font-medium text-gray-300 mb-1">取件電話</label>
                   <input
-                    type="tel"
                     v-model="editForm.customer_phone"
+                    type="tel"
                     class="w-full px-2 xs:px-3 py-2 text-sm xs:text-base bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="請輸入聯絡電話"
                     required
@@ -523,8 +523,8 @@
                 <div>
                   <label class="block text-sm font-medium text-gray-300 mb-1">物流資訊</label>
                   <input
-                    type="text"
                     v-model="editForm.logistics"
+                    type="text"
                     class="w-full px-2 xs:px-3 py-2 text-sm xs:text-base bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="請輸入物流相關資訊"
                     required
@@ -535,8 +535,8 @@
                 <div>
                   <label class="block text-sm font-medium text-gray-300 mb-1">金額</label>
                   <input
-                    type="number"
                     v-model.number="editForm.amount"
+                    type="number"
                     min="0"
                     class="w-full px-2 xs:px-3 py-2 text-sm xs:text-base bg-gray-700 border border-gray-600 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="請輸入金額（可選）"
@@ -582,8 +582,8 @@
                   </button>
                   <button
                     type="button"
-                    @click="closeEditModal"
                     class="inline-flex w-full justify-center rounded-lg bg-gray-700 px-3 py-2 text-sm font-semibold text-gray-300 shadow-sm hover:bg-gray-600 sm:mt-0 sm:w-auto order-1 xs:order-2"
+                    @click="closeEditModal"
                   >
                     取消
                   </button>
@@ -626,9 +626,9 @@
           </div>
           <div class="mt-4 xs:mt-5 sm:mt-4 flex flex-col xs:flex-row gap-2 xs:gap-3 sm:flex-row-reverse">
             <button
-              @click="confirmDelete"
               :disabled="isDeleting"
               class="inline-flex w-full justify-center rounded-lg bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 disabled:opacity-50 disabled:cursor-not-allowed sm:ml-3 sm:w-auto order-2 xs:order-1"
+              @click="confirmDelete"
             >
               <svg v-if="isDeleting" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -637,9 +637,9 @@
               {{ isDeleting ? '刪除中...' : '是，刪除' }}
             </button>
             <button
-              @click="closeDeleteModal"
               :disabled="isDeleting"
               class="inline-flex w-full justify-center rounded-lg bg-gray-700 px-3 py-2 text-sm font-semibold text-gray-300 shadow-sm hover:bg-gray-600 disabled:opacity-50 sm:mt-0 sm:w-auto order-1 xs:order-2"
+              @click="closeDeleteModal"
             >
               取消
             </button>
@@ -788,14 +788,16 @@ const filteredOrders = computed(() => {
       switch (filter.dateRange) {
         case 'today':
           return orderDate >= today
-        case 'week':
+        case 'week': {
           const weekAgo = new Date(today)
           weekAgo.setDate(weekAgo.getDate() - 7)
           return orderDate >= weekAgo
-        case 'month':
+        }
+        case 'month': {
           const monthAgo = new Date(today)
           monthAgo.setMonth(monthAgo.getMonth() - 1)
           return orderDate >= monthAgo
+        }
         case 'custom':
           if (filter.customStartDate && filter.customEndDate) {
             const startDate = new Date(filter.customStartDate)

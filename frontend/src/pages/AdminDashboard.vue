@@ -6,22 +6,22 @@
           <div class="flex items-center space-x-4">
             <h1 class="text-lg xs:text-base-mobile sm:text-xl font-semibold">
               管理後台
-              <span class="ml-2 text-xs xs:text-xxs sm:text-sm font-normal text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full">v3.71</span>
+              <span class="ml-2 text-xs xs:text-xxs sm:text-sm font-normal text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full">v3.72</span>
             </h1>
           </div>
           
           <!-- 桌面版導航 -->
           <div class="hidden md:flex items-center space-x-3">
             <button
-              @click="goToPaymentForm"
               class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium"
+              @click="goToPaymentForm"
             >
               回到提交表單
             </button>
             
             <button
-              @click="goToCustomerOrders"
               class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-md text-sm font-medium flex items-center space-x-2"
+              @click="goToCustomerOrders"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -33,8 +33,8 @@
             <div class="flex items-center space-x-2">
               <label class="flex items-center space-x-1 cursor-pointer bg-gray-50 hover:bg-gray-100 px-2 py-1 rounded border transition-colors duration-200">
                 <input 
-                  type="checkbox" 
-                  v-model="debugMode"
+                  v-model="debugMode" 
+                  type="checkbox"
                   class="rounded border-gray-300 text-blue-600 focus:ring-blue-500 focus:ring-2"
                 >
                 <svg class="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -65,8 +65,8 @@
               <span v-if="currentUserInfo?.store_id" class="text-xs text-gray-500">(分店用戶)</span>
             </div>
             <button
-              @click="logout"
               class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium"
+              @click="logout"
             >
               登出
             </button>
@@ -75,8 +75,8 @@
           <!-- 手機版菜單按鈕 -->
           <div class="md:hidden flex items-center">
             <button
-              @click="mobileMenuOpen = !mobileMenuOpen"
               class="text-gray-400 hover:text-gray-600 p-2"
+              @click="mobileMenuOpen = !mobileMenuOpen"
             >
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -89,8 +89,8 @@
         <div v-show="mobileMenuOpen" class="md:hidden border-t border-gray-200 py-2">
           <div class="space-y-3 px-2 xs:px-3 sm:px-4">
             <button
-              @click="goToPaymentFormAndCloseMobileMenu"
               class="w-full text-left bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 xs:py-3.5 rounded-md text-sm xs:text-sm-mobile font-medium flex items-center space-x-2 min-h-touch"
+              @click="goToPaymentFormAndCloseMobileMenu"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
@@ -102,8 +102,8 @@
             <div class="flex items-center space-x-2 bg-gray-50 p-3 rounded-md">
               <label class="flex items-center space-x-2 cursor-pointer">
                 <input 
-                  type="checkbox" 
-                  v-model="debugMode"
+                  v-model="debugMode" 
+                  type="checkbox"
                   class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                 >
                 <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -131,8 +131,8 @@
             </div>
             
             <button
-              @click="logout"
               class="w-full text-left bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md text-sm font-medium"
+              @click="logout"
             >
               登出
             </button>
@@ -149,13 +149,13 @@
             <button
               v-for="tab in tabs"
               :key="tab.id"
-              @click="activeTab = tab.id"
               :class="[
                 activeTab === tab.id
                   ? 'border-blue-500 text-blue-600'
                   : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300',
                 'whitespace-nowrap py-2 px-1 border-b-2 font-medium text-sm'
               ]"
+              @click="activeTab = tab.id"
             >
               {{ tab.name }}
             </button>
@@ -189,20 +189,20 @@
         <div class="mb-4">
           <div class="inline-flex bg-gray-100 rounded-lg p-1">
             <button
-              @click="dashboardTab = 'today'"
               :class="dashboardTab === 'today'
                 ? 'bg-white text-gray-900 shadow-sm'
                 : 'text-gray-600 hover:text-gray-900'"
               class="py-2 px-4 sm:px-6 rounded-md text-sm font-medium transition-all"
+              @click="dashboardTab = 'today'"
             >
               📅 當日統計
             </button>
             <button
-              @click="dashboardTab = 'period'"
               :class="dashboardTab === 'period'
                 ? 'bg-white text-gray-900 shadow-sm'
                 : 'text-gray-600 hover:text-gray-900'"
               class="py-2 px-4 sm:px-6 rounded-md text-sm font-medium transition-all"
+              @click="dashboardTab = 'period'"
             >
               📊 期間統計
             </button>
@@ -220,10 +220,10 @@
               </p>
             </div>
             <button
-              @click="manualRefresh"
               :disabled="activeTab !== 'dashboard'"
               class="hidden sm:flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-white border border-gray-200 hover:bg-gray-50 text-gray-600 text-sm transition-colors disabled:opacity-50"
               title="立即刷新"
+              @click="manualRefresh"
             >
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
@@ -240,9 +240,9 @@
                 <span class="text-sm lg:text-xs text-gray-500">日期</span>
                 <input
                   v-model="selectedDate"
-                  @change="updateDateStats"
                   type="date"
                   class="border border-gray-200 rounded-md px-2 py-1 text-sm lg:text-xs focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                  @change="updateDateStats"
                 />
               </div>
 
@@ -251,8 +251,8 @@
                 <span class="text-sm lg:text-xs text-gray-500">分店</span>
                 <select
                   v-model="selectedStoreForDateStats"
-                  @change="() => { updateDateStats(); updateRangeStats(); }"
                   class="border border-gray-200 rounded-md px-2 py-1 text-sm lg:text-xs focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+                  @change="() => { updateDateStats(); updateRangeStats(); }"
                 >
                   <option value="">全部分店</option>
                   <option v-for="store in accessibleStores" :key="store.id" :value="store.id">
@@ -269,9 +269,9 @@
                   {{ formatCountdown() }}
                 </span>
                 <button
-                  @click="manualRefresh"
                   :disabled="activeTab !== 'dashboard'"
                   class="lg:hidden p-1 rounded hover:bg-gray-100 text-gray-500 disabled:opacity-50"
+                  @click="manualRefresh"
                 >
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
@@ -413,7 +413,8 @@
                 <span class="text-sm font-semibold text-pink-600">{{ todayStats.giftCount }} 筆</span>
               </div>
               <div class="space-y-1 max-h-24 overflow-y-auto">
-                <div v-for="(gift, index) in todayStats.giftRecords.slice(0, 3)" :key="index"
+                <div
+v-for="(gift, index) in todayStats.giftRecords.slice(0, 3)" :key="index"
                      class="flex items-center justify-between text-xs border-l-2 border-pink-400 pl-2 py-0.5">
                   <span class="truncate flex-1 mr-2">{{ gift.note || '無備註' }}</span>
                   <span class="text-gray-500 whitespace-nowrap">{{ gift.store_name }}</span>
@@ -443,11 +444,11 @@
                 <button
                   v-for="tab in paymentMethodTabs"
                   :key="tab.value"
-                  @click="selectedPaymentMethodTab = tab.value; updateRangeStats()"
                   :class="selectedPaymentMethodTab === tab.value
                     ? 'bg-gray-900 text-white'
                     : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'"
                   class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+                  @click="selectedPaymentMethodTab = tab.value; updateRangeStats()"
                 >
                   {{ tab.icon }} {{ tab.label }}
                 </button>
@@ -461,11 +462,11 @@
                 <!-- 模式切換 -->
                 <div class="flex items-center space-x-2">
                   <input
-                    v-model="customDateMode"
-                    @change="toggleDateMode"
-                    type="checkbox"
                     id="custom-date-mode-mobile"
+                    v-model="customDateMode"
+                    type="checkbox"
                     class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                    @change="toggleDateMode"
                   />
                   <label for="custom-date-mode-mobile" class="text-sm text-gray-600 cursor-pointer">自訂日期範圍</label>
                 </div>
@@ -474,24 +475,24 @@
                 <div v-if="!customDateMode" class="space-y-2">
                   <div class="flex items-center justify-between bg-white rounded-lg border border-gray-200 p-2">
                     <button
-                      @click="goToPreviousMonth"
                       class="p-3 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors"
+                      @click="goToPreviousMonth"
                     >
                       <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                       </svg>
                     </button>
                     <button
-                      @click="goToCurrentMonth"
                       class="flex-1 text-center py-2 px-4"
                       :class="isCurrentMonth ? 'text-gray-900' : 'text-blue-600 hover:text-blue-700'"
+                      @click="goToCurrentMonth"
                     >
                       <span class="text-lg font-semibold">{{ formatMonthDisplay(selectedMonth) }}</span>
                       <span v-if="!isCurrentMonth" class="block text-xs text-gray-400 mt-0.5">點擊回到本月</span>
                     </button>
                     <button
-                      @click="goToNextMonth"
                       class="p-3 rounded-lg hover:bg-gray-100 active:bg-gray-200 transition-colors"
+                      @click="goToNextMonth"
                     >
                       <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -506,10 +507,10 @@
                     <label class="text-sm xs:text-sm-mobile text-gray-600 font-medium">開始日期</label>
                     <input
                       v-model="statsDateStart"
-                      @change="updateRangeStats"
                       type="date"
                       class="w-full border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-sm xs:text-sm-mobile py-2.5 xs:py-3 min-h-touch"
                       placeholder="開始日期"
+                      @change="updateRangeStats"
                     />
                   </div>
                   <div class="space-y-1.5">
@@ -517,16 +518,16 @@
                     <div class="flex items-center space-x-2">
                       <input
                         v-model="statsDateEnd"
-                        @change="updateRangeStats"
                         type="date"
                         class="flex-1 border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-sm xs:text-sm-mobile py-2.5 xs:py-3 min-h-touch"
                         placeholder="結束日期"
+                        @change="updateRangeStats"
                       />
                       <button
                         v-if="statsDateStart || statsDateEnd"
-                        @click="clearRangeStats"
                         class="p-2 xs:p-2.5 text-gray-400 hover:text-gray-600 min-w-touch min-h-touch rounded-md"
                         title="清除日期範圍"
+                        @click="clearRangeStats"
                       >
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -546,26 +547,26 @@
                   <!-- 月份選擇 - 滑動式 -->
                   <div v-if="!customDateMode" class="flex items-center space-x-1 bg-white rounded-lg border border-gray-200 p-1">
                     <button
-                      @click="goToPreviousMonth"
                       class="p-2 rounded-md hover:bg-gray-100 transition-colors"
                       title="上個月"
+                      @click="goToPreviousMonth"
                     >
                       <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                       </svg>
                     </button>
                     <button
-                      @click="goToCurrentMonth"
                       class="px-4 py-1.5 rounded-md text-sm font-medium transition-colors"
                       :class="isCurrentMonth ? 'text-gray-900' : 'text-blue-600 hover:bg-blue-50'"
                       :title="isCurrentMonth ? '' : '回到本月'"
+                      @click="goToCurrentMonth"
                     >
                       {{ formatMonthDisplay(selectedMonth) }}
                     </button>
                     <button
-                      @click="goToNextMonth"
                       class="p-2 rounded-md hover:bg-gray-100 transition-colors"
                       title="下個月"
+                      @click="goToNextMonth"
                     >
                       <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -578,24 +579,24 @@
                     <label class="text-sm text-gray-600">日期範圍：</label>
                     <input
                       v-model="statsDateStart"
-                      @change="updateRangeStats"
                       type="date"
                       class="border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-sm"
                       placeholder="開始日期"
+                      @change="updateRangeStats"
                     />
                     <span class="text-gray-500">至</span>
                     <input
                       v-model="statsDateEnd"
-                      @change="updateRangeStats"
                       type="date"
                       class="border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 text-sm"
                       placeholder="結束日期"
+                      @change="updateRangeStats"
                     />
                     <button
                       v-if="statsDateStart || statsDateEnd"
-                      @click="clearRangeStats"
                       class="text-gray-400 hover:text-gray-600"
                       title="清除日期範圍"
+                      @click="clearRangeStats"
                     >
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
@@ -609,11 +610,11 @@
                   <!-- 模式切換 -->
                   <div class="flex items-center space-x-2">
                     <input
-                      v-model="customDateMode"
-                      @change="toggleDateMode"
-                      type="checkbox"
                       id="custom-date-mode"
+                      v-model="customDateMode"
+                      type="checkbox"
                       class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                      @change="toggleDateMode"
                     />
                     <label for="custom-date-mode" class="text-sm text-gray-600 cursor-pointer">自訂日期</label>
                   </div>
@@ -638,10 +639,12 @@
               <p class="text-xl font-semibold text-gray-900">{{ formatCurrency(dashboardStats.totalAmount) }}</p>
             </div>
             <!-- 未入帳 (警示) -->
-            <div :class="dashboardStats.rejectedCount > 0 ? 'bg-red-50 border-red-300' : 'bg-white border-gray-200'"
+            <div
+:class="dashboardStats.rejectedCount > 0 ? 'bg-red-50 border-red-300' : 'bg-white border-gray-200'"
                  class="rounded-lg border p-4 hover:shadow-md transition-shadow">
               <p class="text-sm text-gray-500 mb-1">未入帳</p>
-              <p :class="dashboardStats.rejectedCount > 0 ? 'text-red-600' : 'text-gray-900'"
+              <p
+:class="dashboardStats.rejectedCount > 0 ? 'text-red-600' : 'text-gray-900'"
                  class="text-xl font-semibold">{{ dashboardStats.rejectedCount }} 筆</p>
               <p v-if="dashboardStats.rejectedCount > 0" class="text-xs text-red-500 mt-1">需通知客人</p>
             </div>
@@ -738,7 +741,8 @@
                 <span class="text-sm font-semibold text-pink-600">{{ dashboardStats.giftCount }} 筆</span>
               </div>
               <div class="space-y-1 max-h-24 overflow-y-auto">
-                <div v-for="(gift, index) in dashboardStats.giftRecords.slice(0, 3)" :key="index"
+                <div
+v-for="(gift, index) in dashboardStats.giftRecords.slice(0, 3)" :key="index"
                      class="flex items-center justify-between text-xs border-l-2 border-pink-400 pl-2 py-0.5">
                   <span class="truncate flex-1 mr-2">{{ gift.note || '無備註' }}</span>
                   <span class="text-gray-500 whitespace-nowrap">{{ gift.store_name }}</span>
@@ -757,7 +761,8 @@
             <span class="text-xs text-gray-500">現金收入 - 提領 - 店內支出</span>
           </div>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <div v-for="storeCash in currentStoreCash" :key="storeCash.store_id"
+            <div
+v-for="storeCash in currentStoreCash" :key="storeCash.store_id"
                  class="border-l-2 border-green-500 pl-2 py-1">
               <p class="text-xs text-gray-500">{{ storeCash.store_name }}</p>
               <p class="text-lg font-semibold text-gray-900">{{ formatCurrency(storeCash.cash_amount) }}</p>
@@ -804,7 +809,7 @@
               <p class="text-sm">{{ message }}</p>
             </div>
             <div class="ml-4 flex-shrink-0">
-              <button @click="message = ''" class="text-gray-400 hover:text-gray-600">
+              <button class="text-gray-400 hover:text-gray-600" @click="message = ''">
                 <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
@@ -818,8 +823,8 @@
           ref="excelFileInput"
           type="file"
           accept=".xlsx,.xls"
-          @change="handleFileImport"
           class="hidden"
+          @change="handleFileImport"
         />
 
         <!-- 收款記錄區域 - 使用全部剩餘空間 -->
@@ -903,8 +908,8 @@
           ref="fileInput"
           type="file"
           accept=".db,.sql,.sqlite,.sqlite3"
-          @change="handleFileSelect"
           class="hidden"
+          @change="handleFileSelect"
         />
       </div>
 
@@ -927,14 +932,14 @@
           
           <div class="flex justify-end space-x-3 mt-6">
             <button
-              @click="showBatchStatusModal = false"
               class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
+              @click="showBatchStatusModal = false"
             >
               取消
             </button>
             <button
-              @click="saveBatchStatus"
               class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
+              @click="saveBatchStatus"
             >
               確認更新
             </button>
@@ -954,14 +959,14 @@
 
           <div class="flex justify-end space-x-3 mt-6">
             <button
-              @click="showDeleteConfirmModal = false"
               class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
+              @click="showDeleteConfirmModal = false"
             >
               取消
             </button>
             <button
-              @click="confirmBatchDelete"
               class="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-md hover:bg-red-700"
+              @click="confirmBatchDelete"
             >
               確認刪除
             </button>
@@ -1020,15 +1025,15 @@
 
           <div class="flex justify-end space-x-3 mt-6">
             <button
-              @click="cancelExcelImport"
               class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
+              @click="cancelExcelImport"
             >
               取消
             </button>
             <button
-              @click="executeExcelImport"
               :disabled="!importPassword"
               class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed"
+              @click="executeExcelImport"
             >
               確認匯入
             </button>
@@ -1078,9 +1083,9 @@
               <div class="mt-1 space-y-2">
                 <label v-for="(desc, perm) in availablePermissions" :key="perm" class="flex items-center">
                   <input 
-                    type="checkbox" 
+                    v-model="userForm.permissions" 
+                    type="checkbox"
                     :value="perm"
-                    v-model="userForm.permissions"
                     class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                   />
                   <span class="ml-2 text-sm text-gray-700">{{ desc }}</span>
@@ -1094,9 +1099,9 @@
               <div class="mt-1 space-y-2 max-h-32 overflow-y-auto border border-gray-300 rounded-md p-2">
                 <label v-for="store in stores" :key="store.id" class="flex items-center">
                   <input 
-                    type="checkbox" 
+                    v-model="userForm.accessible_stores" 
+                    type="checkbox"
                     :value="store.id"
-                    v-model="userForm.accessible_stores"
                     class="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
                   />
                   <span class="ml-2 text-sm text-gray-700">{{ store.name }} ({{ store.code }})</span>
@@ -1118,14 +1123,14 @@
           
           <div class="flex justify-end space-x-3 mt-6">
             <button
-              @click="showUserModal = false"
               class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
+              @click="showUserModal = false"
             >
               取消
             </button>
             <button
-              @click="saveUser"
               class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
+              @click="saveUser"
             >
               {{ editingUser ? '更新' : '新增' }}
             </button>
@@ -1166,14 +1171,14 @@
           
           <div class="flex justify-end space-x-3 mt-6">
             <button
-              @click="showStoreModal = false"
               class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
+              @click="showStoreModal = false"
             >
               取消
             </button>
             <button
-              @click="saveStore"
               class="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700"
+              @click="saveStore"
             >
               {{ editingStore ? '更新' : '新增' }}
             </button>
@@ -1214,14 +1219,14 @@
           
           <div class="flex justify-end space-x-3 mt-6">
             <button
-              @click="showChangePasswordModal = false"
               class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300"
+              @click="showChangePasswordModal = false"
             >
               取消
             </button>
             <button
-              @click="saveNewPassword"
               class="px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700"
+              @click="saveNewPassword"
             >
               確認修改
             </button>
@@ -1237,8 +1242,8 @@
           <div class="flex justify-between items-center">
             <h3 class="text-lg font-medium text-gray-900">資料庫備份列表</h3>
             <button
-              @click="showBackupListModal = false"
               class="text-gray-400 hover:text-gray-600"
+              @click="showBackupListModal = false"
             >
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -1273,8 +1278,8 @@
               </div>
               <div class="flex space-x-2">
                 <button
-                  @click="downloadBackup(backup.filename)"
                   class="px-3 py-1.5 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
+                  @click="downloadBackup(backup.filename)"
                 >
                   下載
                 </button>
@@ -1286,8 +1291,8 @@
         <div class="px-6 py-4 border-t border-gray-200 bg-gray-50">
           <div class="flex justify-end">
             <button
-              @click="showBackupListModal = false"
               class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+              @click="showBackupListModal = false"
             >
               關閉
             </button>
@@ -1341,15 +1346,15 @@
         </div>
         <div class="px-6 py-4 border-t border-gray-200 bg-gray-50 flex justify-end space-x-3">
           <button
-            @click="showClearDataModal = false; clearDataPassword = ''; clearDataConfirm = false"
             class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+            @click="showClearDataModal = false; clearDataPassword = ''; clearDataConfirm = false"
           >
             取消
           </button>
           <button
-            @click="executeClearData"
             :disabled="!clearDataConfirm || !clearDataPassword || clearDataLoading"
             class="px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed"
+            @click="executeClearData"
           >
             {{ clearDataLoading ? '清空中...' : '確認清空' }}
           </button>
@@ -1808,8 +1813,7 @@ const loadDashboardPayments = async () => {
       return new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
     })
     
-    if (dashboardPayments.value.length > 0) {
-    }
+    // 數據已載入，可在此添加後續處理邏輯
   } catch (error) {
     console.error('Failed to load dashboard payments:', error)
   }
@@ -2223,8 +2227,8 @@ const updateRangeStats = () => {
 
         return matches
       })
-    } else {
     }
+    // 沒有選擇月份時不進行篩選
   }
   
   // 如果有選擇特定分店，則加上分店篩選條件（期間統計總覽）

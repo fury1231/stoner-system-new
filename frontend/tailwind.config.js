@@ -26,6 +26,7 @@ export default {
       },
       minHeight: {
         'screen-safe': 'calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom))',
+        'touch': '44px',
       },
       height: {
         'screen-safe': 'calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom))',
@@ -39,9 +40,6 @@ export default {
       },
       // iPhone 14 優化的按鈕尺寸（至少44px高度符合Apple建議）
       minWidth: {
-        'touch': '44px',
-      },
-      minHeight: {
         'touch': '44px',
       },
     },

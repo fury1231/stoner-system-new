@@ -19,8 +19,8 @@
       <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-3 sm:space-y-0">
         <h2 class="text-lg font-medium text-gray-900">會員管理</h2>
         <button
-          @click="$emit('addUser')"
           class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium"
+          @click="$emit('addUser')"
         >
           新增會員
         </button>
@@ -44,7 +44,8 @@
               <tr v-for="user in users" :key="user.id" class="hover:bg-gray-50 transition-colors">
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ user.username }}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                  <span :class="user.role === 'admin' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'"
+                  <span
+:class="user.role === 'admin' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'"
                         class="inline-flex px-2 py-1 text-xs font-semibold rounded-full">
                     {{ user.role === 'admin' ? '管理員' : '一般用戶' }}
                   </span>
@@ -55,7 +56,8 @@
                   </div>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <span :class="user.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'"
+                  <span
+:class="user.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'"
                         class="inline-flex px-2 py-1 text-xs font-semibold rounded-full">
                     {{ user.is_active ? '啟用' : '停用' }}
                   </span>
@@ -65,21 +67,21 @@
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                   <button
-                    @click="$emit('editUser', user)"
                     class="text-blue-600 hover:text-blue-900"
+                    @click="$emit('editUser', user)"
                   >
                     編輯
                   </button>
                   <button
-                    @click="$emit('changePassword', user)"
                     class="text-green-600 hover:text-green-900"
+                    @click="$emit('changePassword', user)"
                   >
                     改密碼
                   </button>
                   <button
                     v-if="user.username !== 'admin'"
-                    @click="$emit('deleteUser', user.id)"
                     class="text-red-600 hover:text-red-900"
+                    @click="$emit('deleteUser', user.id)"
                   >
                     刪除
                   </button>
@@ -103,11 +105,13 @@
             <div>
               <h3 class="text-lg font-medium text-gray-900">{{ user.username }}</h3>
               <div class="flex items-center space-x-2 mt-1">
-                <span :class="user.role === 'admin' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'"
+                <span
+:class="user.role === 'admin' ? 'bg-purple-100 text-purple-800' : 'bg-blue-100 text-blue-800'"
                       class="inline-flex px-2 py-1 text-xs font-semibold rounded-full">
                   {{ user.role === 'admin' ? '管理員' : '一般用戶' }}
                 </span>
-                <span :class="user.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'"
+                <span
+:class="user.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'"
                       class="inline-flex px-2 py-1 text-xs font-semibold rounded-full">
                   {{ user.is_active ? '啟用' : '停用' }}
                 </span>
@@ -115,21 +119,21 @@
             </div>
             <div class="flex space-x-2">
               <button
-                @click="$emit('editUser', user)"
                 class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm"
+                @click="$emit('editUser', user)"
               >
                 編輯
               </button>
               <button
-                @click="$emit('changePassword', user)"
                 class="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm"
+                @click="$emit('changePassword', user)"
               >
                 改密碼
               </button>
               <button
                 v-if="user.username !== 'admin'"
-                @click="$emit('deleteUser', user.id)"
                 class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm"
+                @click="$emit('deleteUser', user.id)"
               >
                 刪除
               </button>

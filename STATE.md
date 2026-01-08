@@ -1,12 +1,12 @@
 # System State
 
-**Version**: v3.71
+**Version**: v3.72
 **Last Update**: 2026-01-07
 **Status**: Production Ready
 
 ---
 
-## Latest Changes (v3.71)
+## Latest Changes (v3.72)
 
 - **前端 ESLint 配置修復**:
   - 新增 `frontend/.gitignore` 文件（ESLint 需要此文件）

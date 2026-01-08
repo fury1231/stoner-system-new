@@ -19,8 +19,8 @@
       <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center space-y-3 sm:space-y-0">
         <h2 class="text-lg font-medium text-gray-900">分店管理</h2>
         <button
-          @click="$emit('addStore')"
           class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium"
+          @click="$emit('addStore')"
         >
           新增分店
         </button>
@@ -43,21 +43,22 @@
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ store.name }}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ store.code }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                  <span :class="store.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'"
+                  <span
+:class="store.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'"
                         class="inline-flex px-2 py-1 text-xs font-semibold rounded-full">
                     {{ store.is_active ? '啟用' : '停用' }}
                   </span>
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
                   <button
-                    @click="$emit('editStore', store)"
                     class="text-blue-600 hover:text-blue-900"
+                    @click="$emit('editStore', store)"
                   >
                     編輯
                   </button>
                   <button
-                    @click="$emit('deleteStore', store.id)"
                     class="text-red-600 hover:text-red-900"
+                    @click="$emit('deleteStore', store.id)"
                   >
                     刪除
                   </button>
@@ -78,7 +79,8 @@
                 <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-gray-100 text-gray-800">
                   {{ store.code }}
                 </span>
-                <span :class="store.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'"
+                <span
+:class="store.is_active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'"
                       class="inline-flex px-2 py-1 text-xs font-semibold rounded-full">
                   {{ store.is_active ? '啟用' : '停用' }}
                 </span>
@@ -86,14 +88,14 @@
             </div>
             <div class="flex space-x-2">
               <button
-                @click="$emit('editStore', store)"
                 class="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm"
+                @click="$emit('editStore', store)"
               >
                 編輯
               </button>
               <button
-                @click="$emit('deleteStore', store.id)"
                 class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm"
+                @click="$emit('deleteStore', store.id)"
               >
                 刪除
               </button>
