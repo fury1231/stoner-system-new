@@ -6,7 +6,7 @@
           <div class="flex items-center space-x-4">
             <h1 class="text-lg xs:text-base-mobile sm:text-xl font-semibold">
               管理後台
-              <span class="ml-2 text-xs xs:text-xxs sm:text-sm font-normal text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full">v3.69</span>
+              <span class="ml-2 text-xs xs:text-xxs sm:text-sm font-normal text-blue-600 bg-blue-100 px-2 py-0.5 rounded-full">v3.70</span>
             </h1>
           </div>
           

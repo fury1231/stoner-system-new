@@ -1,12 +1,21 @@
 # System State
 
-**Version**: v3.69
+**Version**: v3.70
 **Last Update**: 2026-01-07
 **Status**: Production Ready
 
 ---
 
-## Latest Changes (v3.69)
+## Latest Changes (v3.70)
+
+- **ESLint 錯誤修復**:
+  - `backup.ts`: 將 require('child_process') 改為 ES6 import
+  - `customer-orders.ts`: 修復正則表達式不必要的轉義字符
+  - `users.ts`: 修復正則表達式不必要的轉義字符
+
+---
+
+## Previous Changes (v3.69)
 
 - **CI/CD 前端修復**:
   - 移除過時的 PaymentForm 測試

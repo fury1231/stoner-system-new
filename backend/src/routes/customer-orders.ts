@@ -19,7 +19,7 @@ const customerOrderValidation = [
     .withMessage('商品不能為空')
     .isLength({ max: 300 })
     .withMessage('商品描述不能超過300字符')
-    .matches(/^[a-zA-Z0-9\u4e00-\u9fa5\s\-_,.!?@#$%&*()\[\]{}+=/:;'"<>]*$/)
+    .matches(/^[a-zA-Z0-9\u4e00-\u9fa5\s_,.!?@#$%&*()[\]{}+=/:;'"<>-]*$/)
     .withMessage('商品描述包含不允許的字符'),
   
   body('customer_name')
@@ -47,14 +47,14 @@ const customerOrderValidation = [
     .withMessage('物流資訊不能為空')
     .isLength({ max: 150 })
     .withMessage('物流資訊不能超過150字符')
-    .matches(/^[a-zA-Z0-9\u4e00-\u9fa5\s\-_,.]*$/)
+    .matches(/^[a-zA-Z0-9\u4e00-\u9fa5\s_,.-]*$/)
     .withMessage('物流資訊包含不允許的字符'),
   
   body('remarks')
     .optional()
     .isLength({ max: 200 })
     .withMessage('備註不能超過200字符')
-    .matches(/^[a-zA-Z0-9\u4e00-\u9fa5\s\-_,.!?@#$%&*()\[\]{}+=/:;'"<>]*$/)
+    .matches(/^[a-zA-Z0-9\u4e00-\u9fa5\s_,.!?@#$%&*()[\]{}+=/:;'"<>-]*$/)
     .withMessage('備註包含不允許的字符'),
   
   body('amount')
@@ -327,7 +327,7 @@ router.patch('/:id', authenticate, requirePermission('edit_payments'), [
     .withMessage('商品不能為空')
     .isLength({ max: 300 })
     .withMessage('商品描述不能超過300字符')
-    .matches(/^[a-zA-Z0-9\u4e00-\u9fa5\s\-_,.!?@#$%&*()\[\]{}+=/:;'"<>]*$/)
+    .matches(/^[a-zA-Z0-9\u4e00-\u9fa5\s_,.!?@#$%&*()[\]{}+=/:;'"<>-]*$/)
     .withMessage('商品描述包含不允許的字符'),
   
   body('customer_name').optional()
@@ -359,13 +359,13 @@ router.patch('/:id', authenticate, requirePermission('edit_payments'), [
     .withMessage('物流資訊不能為空')
     .isLength({ max: 150 })
     .withMessage('物流資訊不能超過150字符')
-    .matches(/^[a-zA-Z0-9\u4e00-\u9fa5\s\-_,.]*$/)
+    .matches(/^[a-zA-Z0-9\u4e00-\u9fa5\s_,.-]*$/)
     .withMessage('物流資訊包含不允許的字符'),
   
   body('remarks').optional()
     .isLength({ max: 200 })
     .withMessage('備註不能超過200字符')
-    .matches(/^[a-zA-Z0-9\u4e00-\u9fa5\s\-_,.!?@#$%&*()\[\]{}+=/:;'"<>]*$/)
+    .matches(/^[a-zA-Z0-9\u4e00-\u9fa5\s_,.!?@#$%&*()[\]{}+=/:;'"<>-]*$/)
     .withMessage('備註包含不允許的字符'),
   
   body('amount').optional()

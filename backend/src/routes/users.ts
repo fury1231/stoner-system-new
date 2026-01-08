@@ -16,8 +16,8 @@ const userValidation = [
   body('password')
     .isLength({ min: 8, max: 128 })
     .withMessage('密碼長度必須在8-128個字符之間')
-    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+\-_=])[A-Za-z\d@$!%*?&#+\-_=]/)
-    .withMessage('密碼必須包含至少一個小寫字母、一個大寫字母、一個數字和一個特殊字符(@$!%*?&#+\-_=)'),
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+_=-])[A-Za-z\d@$!%*?&#+_=-]/)
+    .withMessage('密碼必須包含至少一個小寫字母、一個大寫字母、一個數字和一個特殊字符(@$!%*?&#+_=-)'),
   body('role').isIn(['admin', 'user']).withMessage('角色必須選擇管理員或一般用戶'),
   body('permissions').optional().isArray().withMessage('權限設定格式錯誤'),
   body('store_id').optional().custom(value => {
@@ -38,8 +38,8 @@ const userUpdateValidation = [
   body('password').optional().custom(value => {
     if (!value || value === '') return true  // 空密碼表示不修改
     if (value.length < 8 || value.length > 128) return false
-    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+\-_=])[A-Za-z\d@$!%*?&#+\-_=]/.test(value)
-  }).withMessage('密碼必須包含至少8個字符，包括大小寫字母、數字和特殊字符(@$!%*?&#+\-_=)'),
+    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+_=-])[A-Za-z\d@$!%*?&#+_=-]/.test(value)
+  }).withMessage('密碼必須包含至少8個字符，包括大小寫字母、數字和特殊字符(@$!%*?&#+_=-)'),
   body('role').optional().isIn(['admin', 'user']).withMessage('角色必須選擇管理員或一般用戶'),
   body('permissions').optional().isArray().withMessage('權限設定格式錯誤'),
   body('store_id').optional().custom(value => {
@@ -295,8 +295,8 @@ router.post('/:id/admin-reset-password', passwordOperationRateLimit, authenticat
   body('newPassword')
     .isLength({ min: 8, max: 128 })
     .withMessage('新密碼長度必須在8-128個字符之間')
-    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+\-_=])[A-Za-z\d@$!%*?&#+\-_=]/)
-    .withMessage('新密碼必須包含至少一個小寫字母、一個大寫字母、一個數字和一個特殊字符(@$!%*?&#+\-_=)')
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+_=-])[A-Za-z\d@$!%*?&#+_=-]/)
+    .withMessage('新密碼必須包含至少一個小寫字母、一個大寫字母、一個數字和一個特殊字符(@$!%*?&#+_=-)')
 ], async (req: AuthenticatedRequest, res: Response) => {
   try {
     const errors = validationResult(req)
@@ -341,8 +341,8 @@ router.post('/change-password', passwordOperationRateLimit, authenticate, [
   body('newPassword')
     .isLength({ min: 8, max: 128 })
     .withMessage('新密碼長度必須在8-128個字符之間')
-    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+\-_=])[A-Za-z\d@$!%*?&#+\-_=]/)
-    .withMessage('新密碼必須包含至少一個小寫字母、一個大寫字母、一個數字和一個特殊字符(@$!%*?&#+\-_=)')
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+_=-])[A-Za-z\d@$!%*?&#+_=-]/)
+    .withMessage('新密碼必須包含至少一個小寫字母、一個大寫字母、一個數字和一個特殊字符(@$!%*?&#+_=-)')
 ], async (req: AuthenticatedRequest, res: Response) => {
   try {
     const errors = validationResult(req)

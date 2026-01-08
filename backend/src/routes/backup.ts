@@ -1,4 +1,5 @@
-import { Router, Request, Response, NextFunction } from 'express'
+import { Router, Response, NextFunction } from 'express'
+import { spawn } from 'child_process'
 import { db } from '../db.js'
 import { authenticate, AuthenticatedRequest } from '../middleware/auth.js'
 import fs from 'fs'
@@ -354,7 +355,6 @@ async function createDatabaseBackup(): Promise<{ filename: string; size: number;
 
 // PostgreSQL 備份
 async function createPostgreSQLBackup(backupDir: string, timestamp: string): Promise<{ filename: string; size: number; path: string }> {
-  const { spawn } = require('child_process')
   const backupFilename = `backup-postgresql-${timestamp}.sql`
   const backupPath = path.join(backupDir, backupFilename)
 
@@ -442,7 +442,6 @@ async function importDatabase(tempPath: string, originalName: string, _username:
 
 // PostgreSQL 備份還原
 async function importPostgreSQLBackup(tempPath: string, originalName: string): Promise<{ filename: string; size: number; originalName: string }> {
-  const { spawn } = require('child_process')
   const fileStats = fs.statSync(tempPath)
 
   // 檢查檔案大小
