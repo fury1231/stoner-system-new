@@ -1,6 +1,6 @@
 # AI Project Guide
 
-**Ver**: v3.72 | **Path**: `/home/deploy/stoner-system` | **Status**: Prod Ready | **DB**: PostgreSQL 16
+**Ver**: v3.73 | **Path**: `/home/deploy/stoner-system` | **Status**: Prod Ready | **DB**: PostgreSQL 16
 
 ---
 
@@ -178,6 +178,7 @@ Admin = all permissions | User = selective
 - v3.69: Fix CI/CD frontend - remove outdated PaymentForm test, add placeholder test
 - v3.70: Fix ESLint errors in backup.ts, customer-orders.ts, users.ts (require statements, regex escapes)
 - v3.72: Add missing frontend/.gitignore for ESLint
+- v3.73: Security fix - update npm dependencies (express 4.21.3, express-validator 7.2.2, vite 6.3.5, vitest 3.2.3), remove deprecated csurf package
 
 ### Modify Validation
 1. `backend/src/middleware/validation.ts`
