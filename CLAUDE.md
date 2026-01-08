@@ -1,6 +1,6 @@
 # AI Project Guide
 
-**Ver**: v3.70 | **Path**: `/home/deploy/stoner-system` | **Status**: Prod Ready | **DB**: PostgreSQL 16
+**Ver**: v3.71 | **Path**: `/home/deploy/stoner-system` | **Status**: Prod Ready | **DB**: PostgreSQL 16
 
 ---
 
@@ -129,7 +129,7 @@ Admin = all permissions | User = selective
 ### ⚠️ Update Version (REQUIRED for ANY change)
 **Location**: `frontend/src/pages/AdminDashboard.vue` Line 9
 
-**Current**: `<span>v3.70</span>`
+**Current**: `<span>v3.71</span>`
 
 **When to increment**:
 - ✅ Backend code changes (API, DB, middleware, routes)
@@ -177,6 +177,7 @@ Admin = all permissions | User = selective
 - v3.68: Fix CI/CD backend - migrate tests from Jest to Vitest, remove outdated test files, fix ESLint config
 - v3.69: Fix CI/CD frontend - remove outdated PaymentForm test, add placeholder test
 - v3.70: Fix ESLint errors in backup.ts, customer-orders.ts, users.ts (require statements, regex escapes)
+- v3.71: Add missing frontend/.gitignore for ESLint
 
 ### Modify Validation
 1. `backend/src/middleware/validation.ts`

@@ -1,12 +1,19 @@
 # System State
 
-**Version**: v3.70
+**Version**: v3.71
 **Last Update**: 2026-01-07
 **Status**: Production Ready
 
 ---
 
-## Latest Changes (v3.70)
+## Latest Changes (v3.71)
+
+- **前端 ESLint 配置修復**:
+  - 新增 `frontend/.gitignore` 文件（ESLint 需要此文件）
+
+---
+
+## Previous Changes (v3.70)
 
 - **ESLint 錯誤修復**:
   - `backup.ts`: 將 require('child_process') 改為 ES6 import
