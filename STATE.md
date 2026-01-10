@@ -1,12 +1,39 @@
 # System State
 
-**Version**: v3.72
-**Last Update**: 2026-01-07
+**Version**: v3.75
+**Last Update**: 2026-01-10
 **Status**: Production Ready
 
 ---
 
-## Latest Changes (v3.72)
+## Latest Changes (v3.75)
+
+- **查詢限制提升至百萬筆**:
+  - 後端 `payments.ts`: maxLimit 從 1,000 → 1,000,000
+  - 前端 `AdminDashboard.vue`: dashboardPayments limit 從 10,000 → 1,000,000
+  - 確保當日/期間統計在大量資料時仍準確
+  - Docker 映像已重建並部署
+
+---
+
+## Previous Changes (v3.74)
+
+- **強制瀏覽器刷新**:
+  - Nginx 配置新增 `index.html` no-cache headers
+  - `Cache-Control: no-cache, no-store, must-revalidate`
+  - 解決用戶瀏覽器緩存舊版本問題
+
+---
+
+## Previous Changes (v3.73)
+
+- **安全性更新**:
+  - 升級 npm 依賴 (express 4.21.3, express-validator 7.2.2, vite 6.3.5, vitest 3.2.3)
+  - 移除已棄用的 csurf 套件
+
+---
+
+## Previous Changes (v3.72)
 
 - **前端 ESLint 配置修復**:
   - 新增 `frontend/.gitignore` 文件（ESLint 需要此文件）
@@ -129,6 +156,9 @@
 
 ## Recent Version History
 
+- **v3.75**: 查詢限制提升至百萬筆（統計準確性）
+- **v3.74**: 強制瀏覽器刷新（Nginx no-cache headers）
+- **v3.73**: 安全性更新（npm 依賴升級）
 - **v3.66**: 🔒 分店權限過濾漏洞修復（重大安全修復）
 - **v3.65**: 備份匯入 users 表 ON CONFLICT 修復
 - **v3.63**: CI/CD Pipeline（GitHub Actions + Docker）
