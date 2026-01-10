@@ -203,8 +203,8 @@ router.get('/', authenticate, requirePermission('view_payments'), async (req: Au
 
     // 解析查詢參數
     const page = Math.max(1, parseInt(req.query.page as string) || 1)
-    // 🔧 優化：限制單次查詢最大筆數，從環境變數讀取（預設 1000）
-    const maxLimit = parseInt(process.env.MAX_QUERY_LIMIT || '1000')
+    // 🔧 優化：限制單次查詢最大筆數，從環境變數讀取（預設 1000000）
+    const maxLimit = parseInt(process.env.MAX_QUERY_LIMIT || '1000000')
     const limit = Math.min(maxLimit, Math.max(1, parseInt(req.query.limit as string) || 50))
     const offset = (page - 1) * limit
 
