@@ -129,7 +129,7 @@ Admin = all permissions | User = selective
 ### ⚠️ Update Version (REQUIRED for ANY change)
 **Location**: `frontend/src/pages/AdminDashboard.vue` Line 9
 
-**Current**: `<span>v3.72</span>`
+**Current**: `<span>v3.74</span>`
 
 **When to increment**:
 - ✅ Backend code changes (API, DB, middleware, routes)
@@ -179,6 +179,7 @@ Admin = all permissions | User = selective
 - v3.70: Fix ESLint errors in backup.ts, customer-orders.ts, users.ts (require statements, regex escapes)
 - v3.72: Add missing frontend/.gitignore for ESLint
 - v3.73: Security fix - update npm dependencies (express 4.21.3, express-validator 7.2.2, vite 6.3.5, vitest 3.2.3), remove deprecated csurf package
+- v3.74: Force browser refresh - add no-cache headers for index.html in nginx config
 
 ### Modify Validation
 1. `backend/src/middleware/validation.ts`
